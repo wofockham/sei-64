@@ -60,7 +60,5 @@ for (let i = 0; i < bros.length; i++) {
     console.log(bros[i], 'Marx');
 }
 
-console.log('the last brother was', lastBrother);
-
 // console.log('WTF does this still exist?', i);
 
