@@ -5,7 +5,10 @@ const catFactory = function (n, a, f) {
         name: n,
         age: a,
         furColor: f,
-        species: 'feline'
+        species: 'feline',
+        meow: function () {
+            console.log('Meow my name is', this.name); // we will have much more to say about `this` later.
+        }
     };
 };
 
