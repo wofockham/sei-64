@@ -1,0 +1,46 @@
+/* 
+CSS: Cascading Style Sheets
+
+selector {
+    property-name: some-value;
+    other-property: other-value;
+}
+
+*/
+
+body {
+    background-color: aliceblue;
+}
+
+h1 {
+    text-align: center;
+    font-size: 616%; /* other units: px, pt, em, rem */
+    color: #49d273; /* hex color code: #rrggbb 00-ff */
+}
+
+a {
+    color: #fd6868;
+}
+
+/* More complicated selectors  */
+
+/* Select multiple elements at the same time: */
+
+h1, h2, h3, h4, h5, h6 {
+    background-color: aquamarine;
+}
+
+img {
+    width: 49%;
+}
+
+/* <img> with the class of "butterfly" */
+img.butterfly {
+    width: 100%;
+}
+
+/* Anything with the class of harpo */
+.harpo {
+    color: purple;
+    font-style: italic;
+}
