@@ -1,0 +1,24 @@
+/*
+
+Typically on new projects we set the sizing rules once and for all, for every element:
+
+* {
+    box-sizing: border-box; // width and height are respected, regardless of padding and border
+}
+*/
+
+body {
+    background-color: lightslategray;
+}
+
+.box {
+    width: 300px;
+    height: 300px;
+    border: 3px solid black;
+    background-color: white;
+    padding: 30px;
+}
+
+.new {
+    box-sizing: border-box;
+}
