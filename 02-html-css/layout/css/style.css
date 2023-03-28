@@ -1,0 +1,51 @@
+body {
+    /* #123 expands to #112233 */
+    background-color: #222; /* #222222 */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 960px; /* poor person's lazy responsive container */
+    margin: 0 auto; /* center */
+    background-color: #ccc;
+    padding: 1em; /* a chunky pixel */
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+
+nav {
+    text-align: right;
+}
+
+nav a {
+    color: green;
+}
+
+h1 {
+    text-align: center;
+    background-color: #222;
+    color: #ccc;
+    font-size: 400%;
+    padding: 0.5em;
+    text-transform: uppercase;
+}
+
+main {
+    display: inline-block;
+    width: 75%;
+}
+
+aside {
+    display: inline-block;
+    width: 21%; /* In CSS: 75% + 21% == 100% */
+    vertical-align: top;
+    background-color: #cfc;
+    padding: 1em;
+    border-radius: 0.5em;
+    box-shadow: 0px 15px 15px black;
+}
+
+aside ul {
+    padding-left: 15px;
+}
