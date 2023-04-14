@@ -1,0 +1,11 @@
+<h1>
+    <%= @butterfly["name"] %>
+</h1>
+
+<h2>
+    Family: <%= @butterfly["family"] %>
+</h2>
+
+<% unless @butterfly["image"].nil? || @butterfly["image"].empty? %>
+    <img class="feature" src="<%= @butterfly["image"] %>" alt="<%= @butterfly["name"] %>">
+<% end %>
