@@ -1,0 +1,26 @@
+<h1>Helpers</h1>
+
+<h2>Numbers</h2>
+<p><%= number_to_currency @amount %></p>
+<p><%= number_to_human @large_number %></p>
+<p><%= number_to_phone @phone, :area_code => true %></p>
+
+<h2>Text</h2>
+<p><%= pluralize @friend_count, 'friend' %>.</p>
+<p><%= pluralize @enemy_count, 'enemy' %>.</p>
+
+<h2>Assets</h2>
+<%= image_tag 'funny.jpg', :alt => 'Children smoking', :class => 'feature' %>
+<%= image_tag 'http://www.placekitten.com/500/500', :alt => 'A kitten' %>
+<p>
+    There are also helpers for <code>video_tag</code> and <code>audio_tag</code>
+</p>
+
+<h2>URL helpers</h2>
+<!-- what not to do (handwriting <a> tags AND hardcoding the URLs): -->
+<a href="/">Home</a>
+<a href="/goodbye">Goodbye</a>
+
+<hr>
+<%= link_to "Home", root_path %>
+<%= link_to "Goodybe", goodbye_path %>
