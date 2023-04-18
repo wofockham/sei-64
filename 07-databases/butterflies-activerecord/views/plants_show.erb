@@ -2,6 +2,19 @@
     <%= @plant.name %>
 </h1>
 
+<% if @plant.butterflies.any? %>
+    <h3>Associated butterflies:</h3>
+    <ul>
+        <% @plant.butterflies.each do |butterfly| %>
+            <li>
+                <a href="/butterflies/<%= butterfly.id %>">
+                    <%= butterfly.name %>
+                </a>
+            </li>
+        <% end %>
+    </ul>
+<% end %>
+
 <% if @plant.image.present? %>
     <img class="feature" src="<%= @plant.image %>" alt="<%= @plant.name %>">
 <% end %>
