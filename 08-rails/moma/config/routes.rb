@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'works/index'
-  get 'works/new'
-  get 'works/edit'
-  get 'works/show'
+  root :to => 'works#index'
   resources :artists
   resources :works
 end
