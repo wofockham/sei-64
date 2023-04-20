@@ -16,7 +16,7 @@ Work.create(:title => 'Thieves Kitchen', :year => '1929', :medium => 'etching', 
 Work.create(:title => 'The Rabbiters', :year => '1947', :medium => 'oil on canvas', :style => 'Sun-burnt dinge', :image => 'https://content.ngv.vic.gov.au/retrieve.php?size=1280&type=image&vernonID=5520')
 Work.create(:title => 'The Darkening Stage', :year => '1991', :medium => 'oil on canvas', :style => 'Surrealist', :image => 'https://content.ngv.vic.gov.au/col-images/api/EPUB001055/1280')
 Work.create(:title => 'Carcass', :year => '1953', :medium => 'oil and enamel paint on composition board', :style => 'Sun-burnt splendour', :image => 'https://content.ngv.vic.gov.au/retrieve.php?size=1280&type=image&vernonID=57510')
-Work.create(:title => 'Bride Running Away', :year => '1957', :medium => 'oil and tempera on composition board', :style => 'Sun-burnt primitivism', :image => 'http://www.abc.net.au/news/image/4197918-3x2-940x627.jpg')
+Work.create(:title => 'Bride Running Away', :year => '1957', :medium => 'oil and tempera on composition board', :style => 'Sun-burnt primitivism', :image => 'https://media.mutualart.com/Images/2012_07/27/08/080505541/9ffd8f90-05da-447e-a774-1d216ca4b41b_570.Jpeg')
 Work.create(:title => 'Portrait of Clive James', :year => '1991 - 1992', :medium => 'oil on canvas', :style => 'Modernist', :image => 'https://media.artgallery.nsw.gov.au/thumbnails/collection_images/2/276.1992%23%23S.jpg.505x464_q85.jpg')
 Work.create(:title => 'The Naked Studio', :year => '1981', :medium => '1981', :style => 'Impressionist', :image => 'https://mona.net.au//media/37522/brett-whiteley-the-naked-studio-mona-01.jpg')
 
