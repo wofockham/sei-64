@@ -4,3 +4,6 @@
 
 <p>Tunr is a site for people who love making mixtapes</p>
 
+<% if @current_user.present? %>
+    <p>Logged in as: <%= @current_user.email %></p>
+<% end %>
