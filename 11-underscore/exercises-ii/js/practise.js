@@ -49,8 +49,18 @@ console.log( _(people).pluck('uid') );
 console.log( _(people).max('uid') );
 
 // - Return an object that says how many even numbers and how many odd numbers there are in ` numbers `
+const oddOrEven = function (n) {
+    if (n % 2 === 0) {
+        return 'even';
+    } else {
+        return 'odd';
+    }
+};
+
+console.log( _(numbers).countBy(oddOrEven) );
+
 // - Get three random numbers out of ` numbers `
+console.log( _(numbers).sample(3) );
 
 // ## Remember!
-
 // You have the [documentation!](https://underscorejs.org/)
