@@ -1,15 +1,31 @@
+const state = {
+    nextPage: 1,
+    lastPageReached: false,
+    requestInProgress: false
+};
+
 const searchFlickr = function (keywords) {
+    if (state.lastPageReached || state.requestInProgress) return;
+
     const flickrURL = 'https://api.flickr.com/services/rest';
+
+    state.requestInProgress = true;
 
     $.getJSON(flickrURL, {
         method: 'flickr.photos.search',
         api_key: '2f5ac274ecfac5a455f38745704ad084',
         text: keywords,
         format: 'json',
-        nojsoncallback: 1 // don't bother looking this up: JSONP
+        nojsoncallback: 1, // don't bother looking this up: JSONP
+        page: state.nextPage++
     }).done(showImages).done(function (info) {
         console.log(info);
+        if (info.photos.page >= info.photos.pages) {
+            state.lastPageReached = true;
+        }
+        state.requestInProgress= false;
     });
+
 };
 
 const showImages = function (results) {
@@ -37,6 +53,9 @@ const generateURL = function (p) {
 $(document).ready(function () {
     $('#search').on('submit', function (event) {
         event.preventDefault(); // Don't really submit the form, JS can handle that.
+
+        state.nextPage = 1;
+        $('#images').empty();
 
         const searchTerms = $('#query').val();
         searchFlickr( searchTerms );
