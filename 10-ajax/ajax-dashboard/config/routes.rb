@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/api/time' => 'dashboard#time'
   get '/api/uptime' => 'dashboard#uptime'
   get '/api/calls' => 'dashboard#calls'
+  get '/api/info' => 'dashboard#info'
 end
