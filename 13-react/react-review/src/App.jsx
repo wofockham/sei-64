@@ -1,5 +1,6 @@
 import AboutMe from './components/AboutMe';
 import ReadingList from './components/ReadingList';
+import MadLibs from './components/MadLibs';
 
 const books1 = [
   {
@@ -38,6 +39,8 @@ function App() {
 
       <ReadingList books={ books1 }/>
       <ReadingList books={ books2 }/>
+
+      <MadLibs />
     </div>
   )
 }
