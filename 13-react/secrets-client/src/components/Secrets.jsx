@@ -1,23 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const SERVER_URL = 'http://localhost:3000/secrets.json'; // Later: change this to the deployed URL (e.g. heroku)
 
 const Secrets = () => {
-    // TODO: This will be replaced by AJAX later
-    const seedSecrets = [
-        {id: 1, content: 'secret a'},
-        {id: 2, content: 'secret b'},
-        {id: 3, content: 'secret c'}
-    ];
+    const [secrets, setSecrets] = useState([]);
 
-    const [secrets, setSecrets] = useState(seedSecrets);
+    const fetchSecrets = () => {
+        axios(SERVER_URL).then((response) => {
+            setSecrets(response.data);
+            setTimeout(fetchSecrets, 4000); // polling via recursion!
+        });
+    };
+
+    // Here we use useEffect to run our AJAX request only once
+    useEffect(fetchSecrets, []); // The empty array means "just run this once"
 
     const saveSecret = (content) => {
-        // TODO: this will be replaced by AJAX later
-        const secret = {
-            id: Math.random(), // HACK
-            content: content
-        };
-
-        setSecrets([...secrets, secret]);
+        axios.post(SERVER_URL, {content: content}).then((response) => {
+            setSecrets([...secrets, response.data]); // Add the new secret to our state (which will trigger a re-render)
+        });
     };
 
     return (
