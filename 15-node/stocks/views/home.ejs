@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body>
+    <%- include('partials/nav') %>
+    <form action="/info">
+        <label>
+            Stock symbol:
+            <input type="search" name="symbol" placeholder="GOOG" required>
+        </label>
+        <button>Search</button>
+    </form>
+</body>
+</html>
