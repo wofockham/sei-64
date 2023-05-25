@@ -7,6 +7,13 @@ $(document).ready(function () {
 
     // Event delegation: listen for events on yet-to-be-created DOM elements
     $('.palette').on('click', '.swatch', function () {
-        console.log('you clicked a swatch');
+        $('.swatch.selected').removeClass('selected');
+        $(this).addClass('selected');
     });
+
+    $('.canvas').on('mouseover', '.pixel', function (event) {
+        if (event.shiftKey) return;
+        const color = $('.swatch.selected').css('background-color');
+        $(this).css('background-color', color);
+    })
 });
