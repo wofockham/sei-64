@@ -1,0 +1,28 @@
+%h1.heading.fancy#hotdogs Hello World From Haml
+
+/ this is a comment (weird huh)
+
+/ Evaluating Ruby
+%h2= "hotdogs" * 15
+%h3= "Here is your lucky number: #{ @lucky }"
+%h4= @lucky
+
+/ indentation for nesting
+%div.container
+    %p this is a nested paragraph
+    %p this is also nested
+    %p
+        %span here is a span
+
+%p this is not nested
+
+%label
+    Name:
+    %input{:type => 'number', :placeholder => 'Who art thou?'}
+
+/ loops and non-echoing
+%ul
+    - @bros.each do |name|
+        %li= name
+
+%p HAML knows when to close a block based on your indentation
