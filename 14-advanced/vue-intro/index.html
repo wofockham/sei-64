@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Intro</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+
+    <h1>Vue Intro</h1>
+    
+    <div id="app">
+        {{ message }}
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Cruel World from Vue'
+            }
+        });
+    </script>
+
+    <hr>
+
+    <div id="app-2">
+        <span v-bind:title="message">
+            hover over this text
+        </span>
+    </div>
+
+    <script>
+        const app2 = new Vue({
+            el: '#app-2',
+            data: {
+                message: 'You loaded this page on ' + new Date().toLocaleString()
+            }
+        })
+    </script>
+
+    <hr>
+
+    <div id="app-3">
+        <span v-if="seen">can you see me?</span>
+    </div>
+
+    <script>
+        const app3 = new Vue({
+            el: '#app-3',
+            data: {
+                seen: true
+            }
+        });
+    </script>
+
+    <hr>
+
+    <div id="app-4">
+        <ol>
+            <li v-for="task in tasks">
+                {{ task.text }}
+            </li>
+        </ol>
+    </div>
+
+    <script>
+        const app4 = new Vue({
+            el: '#app-4',
+            data: {
+                tasks: [
+                    { text: 'Learn Vue' },
+                    { text: 'Learn Composition API' },
+                    { text: 'Destroy all humans' },
+                    { text: 'Buy instant mashed potato mix' }
+                ]
+            }
+        });
+    </script>
+
+    <hr>
+
+    <div id="app-5">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">Reverse message</button>
+    </div>
+
+    <script>
+        const app5 = new Vue({
+            el: '#app-5',
+            data: {
+                message: 'Storming the reality studio'
+            },
+            methods: {
+                reverseMessage: function () {
+                    this.message = this.message.split('').reverse().join('');
+                }
+            }
+        })
+    </script>
+
+    <hr>
+
+    <div id="app-6">
+        <p>{{ message }}</p>
+        <input v-model="message" placeholder="your message here">
+    </div>
+
+    <script>
+        const app6 = new Vue({
+            el: '#app-6',
+            data: {
+                message: 'screaming skulls of sonic love'
+            }
+        });
+    </script>
+
+
+</body>
+</html>
