@@ -7,7 +7,7 @@ global.Vocab = require('./api/models/vocabModel');
 const routes = require('./api/routes/vocabRoutes');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://theBlade:@cluster0.i0cbj.mongodb.net/?retryWrites=true&w=majority'); // TODO: get our DB connection
+mongoose.connect(`mongodb+srv://theBlade:${ process.env.MONGOPW }@cluster0.i0cbj.mongodb.net/?retryWrites=true&w=majority`);
 
 const PORT = process.env.PORT || 3000; // ready for deployment
 const app = express();
