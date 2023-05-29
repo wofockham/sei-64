@@ -18,8 +18,6 @@ import HelloWorld from './components/HelloWorld.vue'
     </div>
   </header>
 
-  <button>do not click</button>
-
   <RouterView />
 </template>
 
