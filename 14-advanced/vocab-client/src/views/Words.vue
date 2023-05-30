@@ -18,8 +18,16 @@
                             Show
                         </RouterLink>
                     </td>
-                    <td width="75" class="center aligned">Edit</td>
-                    <td width="75" class="center aligned">Delete</td>
+                    <td width="75" class="center aligned">
+                        <RouterLink :to="{ name: 'edit', params: { id: word._id } }">
+                            Edit
+                        </RouterLink>
+                    </td>
+                    <td width="75" class="center aligned" @click.prevent="onDestroy(word._id)">
+                        <a :href="`/words/${ word._id }`">
+                            Delete
+                        </a>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -35,10 +43,21 @@ export default {
     data: function () {
         return {
             words: []
-        }
+        };
     },
     mounted: async function () {
         this.words = await api.getWords();
+    },
+    methods: {
+        onDestroy: async function (id) {
+            const sure = window.confirm('Are you sure?');
+            if (!sure) return;
+
+            await api.deleteWord(id);
+            const remainingWords = this.words.filter(word => word._id !== id);
+            this.words = remainingWords;
+            alert('Word deleted sucessfully'); // TODO: make this look nicer
+        }
     }
 }
 </script>

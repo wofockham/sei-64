@@ -24,7 +24,13 @@ export default {
     props: {
         word: {
             type: Object,
-            required: false
+            required: false,
+            default: function () {
+                return {
+                    english: '',
+                    german: ''
+                }
+            }
         }
     },
     data: function () {
@@ -37,7 +43,7 @@ export default {
             if (this.word.german === '' || this.word.english === '') {
                 this.errorsPresent = true;
             } else {
-                console.log('form ready for processing');
+                this.$emit('createOrUpdate', this.word);
             }
         }
     }
