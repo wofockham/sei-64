@@ -1,15 +1,13 @@
-'use strict';
-
-var state = {
+const state = {
     nextPage: 1,
     lastPageReached: false
 };
 
-var searchFlickr = function searchFlickr(keywords) {
-    console.log('Searching Flickr for ' + keywords);
+const searchFlickr = function (keywords) {
+    console.log(`Searching Flickr for ${ keywords }`);
     if (state.lastPageReached) return;
 
-    var flickrURL = 'https://api.flickr.com/services/rest';
+    const flickrURL = 'https://api.flickr.com/services/rest';
 
     state.requestInProgress = true;
 
@@ -26,18 +24,28 @@ var searchFlickr = function searchFlickr(keywords) {
             state.lastPageReached = true;
         }
     });
+
 };
 
-var showImages = function showImages(results) {
-    var urls = _(results.photos.photo).map(generateURL);
+const showImages = function (results) {
+    const urls = _(results.photos.photo).map(generateURL);
     _(urls).each(function (url) {
-        var $img = $('<img>', { src: url });
+        const $img = $('<img>', {src: url});
         $img.appendTo('#images');
     });
 };
 
-var generateURL = function generateURL(p) {
-    return ['http://farm', p.farm, '.static.flickr.com/', p.server, '/', p.id, '_', p.secret, '_q.jpg' // change 'q' to something else for different sizes (see documentation)
+const generateURL = function (p) {
+    return [
+        'http://farm',
+        p.farm,
+        '.static.flickr.com/',
+        p.server,
+        '/',
+        p.id,
+        '_',
+        p.secret,
+        '_q.jpg' // change 'q' to something else for different sizes (see documentation)
     ].join('');
 };
 
@@ -48,16 +56,16 @@ $(document).ready(function () {
         state.nextPage = 1;
         $('#images').empty();
 
-        var searchTerms = $('#query').val();
-        searchFlickr(searchTerms);
+        const searchTerms = $('#query').val();
+        searchFlickr( searchTerms );
     });
 
-    var relaxedSearchFlickr = _.debounce(searchFlickr, 4000, true);
+    const relaxedSearchFlickr = _.debounce(searchFlickr, 4000, true);
     $(window).on('scroll', function () {
-        var scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();
+        const scrollBottom  = $(document).height() - $(window).height() - $(window).scrollTop();
         if (scrollBottom <= 700) {
-            var searchTerms = $('#query').val();
-            relaxedSearchFlickr(searchTerms);
+            const searchTerms = $('#query').val();
+            relaxedSearchFlickr( searchTerms );
         }
     });
 });
